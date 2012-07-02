@@ -2,13 +2,10 @@
 """
 brownian() implements one dimensional Brownian motion (i.e. the Wiener process).
 """
-import wx
+
+from hddm.MPLTraits_qt import MPLFigureEditor
 
 import matplotlib
-
-# We want matplotlib to use a wxPython backend
-if __name__ == "__main__":
-    matplotlib.use('WXAgg')
 
 import matplotlib.pyplot as plt
 
@@ -112,8 +109,6 @@ class DDM(HasTraits):
 
 
 class DDMPlot(HasTraits):
-    from hddm.MPLTraits import MPLFigureEditor
-
     figure = Instance(Figure, ())
     parameters = Instance(DDM, ())
     plot_histogram = Bool(True)
@@ -317,7 +312,7 @@ class DDMPlot(HasTraits):
 
         self.set_figure()
 
-        wx.CallAfter(self.figure.canvas.draw)
+        #wx.CallAfter(self.figure.canvas.draw)
 
     def set_figure(self):
         # Set axes limits
